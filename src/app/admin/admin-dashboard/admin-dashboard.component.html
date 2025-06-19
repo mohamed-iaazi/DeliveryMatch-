@@ -1,0 +1,27 @@
+<div class="admin-dashboard-container">
+  <h2>Dashboard Admin</h2>
+  <div class="stats">
+    <div>Utilisateurs : {{ stats.utilisateurs }}</div>
+    <div>Trajets : {{ stats.trajets }}</div>
+    <div>Demandes : {{ stats.demandes }}</div>
+  </div>
+  <h3>Utilisateurs</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Rôle</th>
+        <th>Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of utilisateurs">
+        <td>{{ user.nom }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>{{ user.statut }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> 

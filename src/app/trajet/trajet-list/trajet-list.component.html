@@ -1,0 +1,23 @@
+<div class="trajet-list-container">
+  <h2>Liste des trajets</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Départ</th>
+        <th>Destination</th>
+        <th>Date</th>
+        <th>Capacité</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trajet of trajets">
+        <td>{{ trajet.depart }}</td>
+        <td>{{ trajet.destination }}</td>
+        <td>{{ trajet.date }}</td>
+        <td>{{ trajet.capacite }}</td>
+        <td>{{ trajet.type }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> 
