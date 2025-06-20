@@ -70,7 +70,13 @@
 - Angular CLI
 - PostgreSQL ou MySQL
 
-### 🔧 Backend
-```bash
-cd backend
-./mvnw spring-boot:run
+### 🔧 DiagramUml
+
+####  DiagramDeClass
+![ClassDiagram.jpg](ClassDiagram.jpg)
+####  DiagramDeUseCase
+![UseCaseDiagram.jpg](UseCaseDiagram.jpg)
+
+####  DiagramDeSequence
+
+![SequenceDiagram.jpg](SequenceDiagram.jpg)
