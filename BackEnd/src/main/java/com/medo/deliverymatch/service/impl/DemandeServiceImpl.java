@@ -13,6 +13,7 @@ import com.medo.deliverymatch.dto.DemandeDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -76,12 +77,31 @@ public class DemandeServiceImpl implements DemandeService {
 
     @Override
     public List<DemandeDTO> getDemandeDTOsByExpediteur(Utilisateur expediteur) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return demandeRepository.findByExpediteur(expediteur).stream()
+            .peek(demande -> {
+                System.out.println("Demande: " + demande.getId() + ", Trajet: " + (demande.getTrajet() != null ? demande.getTrajet().getLieuDepart() : "null") + " → " + (demande.getTrajet() != null ? demande.getTrajet().getDestination() : "null"));
+            })
             .map(demande -> new DemandeDTO(
                 demande.getId(),
                 demande.getStatut().name(),
                 demande.getTrajet() != null ? demande.getTrajet().getLieuDepart() + " → " + demande.getTrajet().getDestination() : "",
-                demande.getTrajet() != null && demande.getTrajet().getDateDepart() != null ? demande.getTrajet().getDateDepart().toString() : ""
+                demande.getTrajet() != null && demande.getTrajet().getDateDepart() != null ? demande.getTrajet().getDateDepart().toLocalDateTime().toLocalDate().format(formatter) : "",
+                demande.getExpediteur() != null ? demande.getExpediteur().getNom() + " " + demande.getExpediteur().getPrenom() : ""
+            ))
+            .toList();
+    }
+
+    @Override
+    public List<DemandeDTO> getAllDemandeDTOs() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return demandeRepository.findAll().stream()
+            .map(demande -> new DemandeDTO(
+                demande.getId(),
+                demande.getStatut().name(),
+                demande.getTrajet() != null ? demande.getTrajet().getLieuDepart() + " → " + demande.getTrajet().getDestination() : "",
+                demande.getTrajet() != null && demande.getTrajet().getDateDepart() != null ? demande.getTrajet().getDateDepart().toLocalDateTime().toLocalDate().format(formatter) : "",
+                demande.getExpediteur() != null ? demande.getExpediteur().getNom() + " " + demande.getExpediteur().getPrenom() : ""
             ))
             .toList();
     }

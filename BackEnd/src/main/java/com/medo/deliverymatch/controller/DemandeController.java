@@ -52,4 +52,9 @@ public class DemandeController {
     public ResponseEntity<Demande> updateDemande(@PathVariable Long id, @RequestBody Demande updatedDemande, @AuthenticationPrincipal Utilisateur expediteur) {
         return ResponseEntity.ok(demandeService.updateDemande(id, updatedDemande, expediteur));
     }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<DemandeDTO>> getAllDemandes() {
+        return ResponseEntity.ok(demandeService.getAllDemandeDTOs());
+    }
 } 

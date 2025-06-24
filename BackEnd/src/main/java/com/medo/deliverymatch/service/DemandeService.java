@@ -13,4 +13,5 @@ public interface DemandeService {
     void cancelDemande(Long demandeId, Utilisateur expediteur);
     Demande updateDemande(Long demandeId, Demande updatedDemande, Utilisateur expediteur);
     List<DemandeDTO> getDemandeDTOsByExpediteur(Utilisateur expediteur);
+    List<DemandeDTO> getAllDemandeDTOs();
 } 
