@@ -1,0 +1,76 @@
+<section class="form">
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+  <div *ngIf="success" class="success-message">{{ success }}</div>
+  <div class="container" [class.right-panel-active]="isRegistering" id="container">
+    <div class="form-container sign-up-container">
+      <form (ngSubmit)="onRegister()">
+        <h1>Create Account</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your email for registration</span>
+        <div class="form-group">
+          <label for="register-prenom">First Name</label>
+          <input type="text" class="form-control" id="register-prenom" [(ngModel)]="registerData.prenom" name="register-prenom" required>
+        </div>
+        <div class="form-group">
+          <label for="register-nom">Last Name</label>
+          <input type="text" class="form-control" id="register-nom" [(ngModel)]="registerData.nom" name="register-nom" required>
+        </div>
+        <div class="form-group">
+          <label for="register-email">Email</label>
+          <input type="email" class="form-control" id="register-email" [(ngModel)]="registerData.login" name="register-email" required>
+        </div>
+        <div class="form-group">
+          <label for="register-password">Password</label>
+          <input type="password" class="form-control" id="register-password" [(ngModel)]="registerData.password" name="register-password" required>
+        </div>
+        <select [(ngModel)]="registerData.role" name="role">
+          <option value="" disabled selected>Choose a role</option>
+          <option value="EXPEDITEUR">Expediteur</option>
+          <option value="CONDUCTEUR">Conducteur</option>
+        </select>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+
+    <div class="form-container sign-in-container">
+      <form (ngSubmit)="onLogin()">
+        <h1>Sign in</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your account</span>
+        <div class="form-group">
+          <label for="login-email">Email</label>
+          <input type="email" class="form-control" id="login-email" [(ngModel)]="loginData.login" name="login-email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" class="form-control" id="login-password" [(ngModel)]="loginData.password" name="login-password" required>
+        </div>
+        <a href="#">Forgot your password?</a>
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button class="ghost" (click)="toggle(false)">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start journey with us</p>
+          <button class="ghost" (click)="toggle(true)">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

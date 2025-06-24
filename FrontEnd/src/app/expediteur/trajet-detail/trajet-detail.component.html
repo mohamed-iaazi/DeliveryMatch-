@@ -1,0 +1,21 @@
+<div class="trajet-detail">
+  <div class="trajet-header">
+    <h2>{{ trajet.depart }} - {{ trajet.arrivee }}</h2>
+    <p>Date: {{ trajet.date }} | Heure: {{ trajet.heure }}</p>
+  </div>
+  <div class="trajet-info">
+    <div class="info-block">
+      <h3>Informations sur le trajet</h3>
+      <p>Distance: {{ trajet.distance }} km</p>
+      <p>Durée: {{ trajet.duree }} heures</p>
+    </div>
+    <div class="info-block">
+      <h3>Conducteur</h3>
+      <p>Nom: {{ trajet.conducteur.nom }}</p>
+      <p>Note: {{ trajet.conducteur.note }} / 5</p>
+    </div>
+  </div>
+  <div class="trajet-actions">
+    <button class="btn btn-primary">Réserver</button>
+  </div>
+</div>

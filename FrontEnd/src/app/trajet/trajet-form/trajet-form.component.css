@@ -1,0 +1,22 @@
+.card-header {
+  border-bottom: 0;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #FF4B2B;
+    border-color: #FF4B2B;
+}
+
+.btn-primary:hover {
+    background-color: #E63B1A;
+    border-color: #E63B1A;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #FF4B2B;
+    box-shadow: 0 0 0 0.25rem rgba(255, 75, 43, 0.25);
+} 

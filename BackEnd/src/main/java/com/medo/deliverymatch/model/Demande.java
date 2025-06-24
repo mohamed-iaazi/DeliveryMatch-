@@ -13,18 +13,20 @@ public class Demande {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Colis Colis;
+    @OneToOne
+    @JoinColumn(name = "colis_id")
+    private Colis colis;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private StatutDemande statut;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "utilisateur_id", nullable = false)
     private Utilisateur expediteur;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "trajet_id", nullable = false)
     private Trajet trajet;
 }
 

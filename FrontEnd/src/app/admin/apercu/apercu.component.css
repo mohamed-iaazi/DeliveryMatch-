@@ -1,0 +1,32 @@
+.stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.charts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.chart {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  width: 45%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,26 @@
+.footer {
+  background-color: #f8fafc;
+  padding: 4rem 0 2rem;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h3 {
+    color: #1f2937;
+  }
+  
+  a {
+    @apply hover:text-primary transition-colors;
+  }
+  
+  mat-icon {
+    font-size: 24px;
+    
+    &:hover {
+      transform: translateY(-2px);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+}

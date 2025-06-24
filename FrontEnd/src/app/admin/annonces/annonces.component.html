@@ -1,0 +1,28 @@
+<div class="trajet-list-container">
+  <h2>Liste des trajets</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Départ</th>
+      <th>Destination</th>
+      <th>Date</th>
+      <th>Capacité</th>
+      <th>Type</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let trajet of trajets">
+      <td>{{ trajet.depart }}</td>
+      <td>{{ trajet.destination }}</td>
+      <td>{{ trajet.date }}</td>
+      <td>{{ trajet.capacite }}</td>
+      <td>{{ trajet.type }}</td>
+      <td>
+        <button class="btn btn-primary btn-sm me-1" >Modifier</button>
+        <button class="btn btn-danger btn-sm ms-1" >Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

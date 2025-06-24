@@ -1,0 +1,74 @@
+.trajets-list {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.search-form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.search-form button {
+  width: 30%;
+  padding: 10px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.trajets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trajets li {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.trajets li:last-child {
+  border-bottom: none;
+}
+
+.trajet-info {
+  margin-bottom: 10px;
+}
+
+.trajet-actions {
+  text-align: right;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #ccc;
+  color: #333;
+}
+

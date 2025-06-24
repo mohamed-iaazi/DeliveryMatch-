@@ -1,0 +1,92 @@
+
+header {
+  background-color: #FF4B2B;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+header nav .title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header nav .links {
+  display: flex;
+  align-items: center;
+}
+
+header nav .links a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+header nav .links .logout-btn {
+  background-color:#FFFFFF;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border-color: #FF4B2B;
+  border-width: 3px;
+  color: #FF4B2B;
+}
+
+header nav .links .visit-home {
+  color: #fff;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+aside {
+  background-color: #f0f0f0;
+  width: 200px;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+aside ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+aside li {
+  margin-bottom: 10px;
+}
+
+aside a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+aside a.active {
+  background-color: #fa5402;
+  color: #fff;
+}
+
+aside a:hover {
+  background-color: rgba(250, 84, 2, 0.44);
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+

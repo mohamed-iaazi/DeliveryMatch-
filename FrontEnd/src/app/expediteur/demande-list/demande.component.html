@@ -1,0 +1,21 @@
+<div class="trajet-list-container">
+  <h2>Liste des demandes</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Expéditeur</th>
+      <th>Trajet</th>
+      <th>Statut</th>
+      <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let demande of demandes">
+      <td>{{ demande.expediteur }}</td>
+      <td>{{ demande.trajet }}</td>
+      <td>{{ demande.statut }}</td>
+      <td>{{ demande.date }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,25 @@
+<header>
+  <nav>
+    <div class="title">Tableau de bord </div>
+    <div class="links">
+      <a href="#" class="visit-home">Accueil </a>
+      <a href="#" class="logout-btn">Déconnexion</a>
+    </div>
+  </nav>
+</header>
+<main>
+  <aside>
+    <ul>
+      <li><a (click)="selectComponent('Aperçu')" [ngClass]="{'active': selectedComponent === 'Aperçu'}">Aperçu</a></li>
+      <li><a (click)="selectComponent('utilisateurs')" [ngClass]="{'active': selectedComponent === 'utilisateurs'}">Utilisateurs</a></li>
+      <li><a (click)="selectComponent('demandes')" [ngClass]="{'active': selectedComponent === 'demandes'}">Demandes</a></li>
+      <li><a (click)="selectComponent('annonces')" [ngClass]="{'active': selectedComponent === 'annonces'}">Annonces</a></li>
+    </ul>
+  </aside>
+  <section class="content" [ngSwitch]="selectedComponent">
+    <app-apercu *ngSwitchCase="'Aperçu'"></app-apercu>
+    <app-demandes *ngSwitchCase="'demandes'"></app-demandes>
+    <app-annonces *ngSwitchCase="'annonces'"></app-annonces>
+    <app-utilisateurs *ngSwitchCase="'utilisateurs'"></app-utilisateurs>
+  </section>
+</main>

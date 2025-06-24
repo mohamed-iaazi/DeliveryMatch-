@@ -1,0 +1,26 @@
+<div class="trajet-list-container">
+  <h2>Liste des demandes</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Expéditeur</th>
+      <th>Trajet</th>
+      <th>Statut</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let demande of demandes">
+      <td>{{ demande.expediteur }}</td>
+      <td>{{ demande.trajet }}</td>
+      <td>{{ demande.statut }}</td>
+      <td>{{ demande.date }}</td>
+      <td>
+        <button class="btn btn-primary btn-sm ms-1" >Modifier</button>
+        <button class="btn btn-danger btn-sm ms-1" >Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-primary">Trajets Disponibles</h2>
+    <div class="d-flex w-50">
+      <input type="text" class="form-control me-2" placeholder="Rechercher par départ ou arrivée..."
+             [(ngModel)]="searchTerm" (input)="searchTrajets()">
+      <button class="btn btn-primary">Rechercher</button>
+    </div>
+  </div>
+
+  <table class="table table-hover shadow-sm">
+    <thead class="table-dark">
+    <tr>
+      <th>Départ</th>
+      <th>Destination</th>
+      <th>Date de départ</th>
+      <th>Poids Max (kg)</th>
+      <th>Volume Max (m³)</th>
+      <th>Marchandise</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let trajet of filteredTrajets">
+      <td>{{ trajet.lieuDepart }}</td>
+      <td>{{ trajet.destination }}</td>
+      <td>{{ trajet.dateDepart | date: 'dd/MM/yyyy' }}</td>
+      <td>{{ trajet.poidsMax }}</td>
+      <td>{{ trajet.volumeMax | number: '1.2-2' }}</td>
+      <td>{{ trajet.typeMarchandise }}</td>
+      <td>
+        <button class="btn btn-sm btn-success">Envoyer Demande</button>
+      </td>
+    </tr>
+    <tr *ngIf="filteredTrajets.length === 0">
+      <td colspan="7" class="text-center">Aucun trajet trouvé.</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

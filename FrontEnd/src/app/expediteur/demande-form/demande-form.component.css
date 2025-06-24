@@ -1,0 +1,72 @@
+.demande-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.demande-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.demande-form .form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.demande-form label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.demande-form input[type="text"], .demande-form input[type="number"] {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.demande-form .btn-primary {
+  background-color: #fa5402;
+  border-color: #fa5402;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.demande-form .btn-primary:hover {
+  background-color: rgba(239, 76, 0, 0.21);
+  border-color: #fa5402;
+}
+
+@media (max-width: 768px) {
+  .demande-form {
+    max-width: 90%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .demande-form {
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+  .demande-form input[type="text"], .demande-form input[type="number"] {
+    height: 35px;
+  }
+  .demande-form .btn-primary {
+    padding: 8px 15px;
+  }
+}
+

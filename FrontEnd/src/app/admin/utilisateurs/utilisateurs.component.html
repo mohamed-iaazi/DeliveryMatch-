@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Gestion des Utilisateurs</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Rôle</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <button class="btn btn-primary btn-sm ms-1" (click)="editUser(user)">Modifier</button>
+        <button class="btn btn-danger btn-sm ms-1" (click)="deleteUser(user)">Supprimer</button>
+        <button class="btn btn-outline-dark btn-sm ms-1" (click)="deleteUser(user)">validation</button>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

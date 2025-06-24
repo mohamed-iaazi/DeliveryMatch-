@@ -1,0 +1,69 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-primary">Gérer les Demandes</h2>
+    <a routerLink="/trajet/new" class="btn btn-primary">Créer un nouveau trajet</a>
+  </div>
+
+  <table class="table table-hover shadow-sm">
+    <thead class="table-dark">
+      <tr>
+        <th>Expéditeur</th>
+        <th>Trajet</th>
+        <th>Statut</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let demande of demandes">
+        <td>{{ demande.expediteur }}</td>
+        <td>{{ demande.trajet }}</td>
+        <td>
+          <span class="badge" [ngClass]="getStatusClass(demande.statut)">
+            {{ demande.statut }}
+          </span>
+        </td>
+        <td>{{ demande.date | date: 'dd/MM/yyyy' }}</td>
+        <td>
+          <button class="btn btn-sm btn-success me-2" [disabled]="demande.statut !== 'En attente'">Accepter</button>
+          <button class="btn btn-sm btn-danger" [disabled]="demande.statut !== 'En attente'">Refuser</button>
+        </td>
+      </tr>
+      <tr *ngIf="demandes.length === 0">
+        <td colspan="5" class="text-center">Aucune demande pour le moment.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="my-5">
+
+  <h2 class="text-primary mb-3">Mes Trajets</h2>
+  <table class="table table-hover shadow-sm">
+    <thead class="table-dark">
+      <tr>
+        <th>Départ</th>
+        <th>Destination</th>
+        <th>Date de départ</th>
+        <th>Poids Max (kg)</th>
+        <th>Volume Max (m³)</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trajet of trajets">
+        <td>{{ trajet.lieuDepart }}</td>
+        <td>{{ trajet.destination }}</td>
+        <td>{{ trajet.dateDepart | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ trajet.poidsMax }}</td>
+        <td>{{ trajet.volumeMax | number: '1.2-2' }}</td>
+        <td>
+          <a [routerLink]="['/trajet/edit', trajet.id]" class="btn btn-sm btn-warning me-2">Modifier</a>
+          <button class="btn btn-sm btn-danger" (click)="deleteTrajet(trajet.id)">Supprimer</button>
+        </td>
+      </tr>
+      <tr *ngIf="trajets.length === 0">
+        <td colspan="6" class="text-center">Vous n'avez créé aucun trajet.</td>
+      </tr>
+    </tbody>
+  </table>
+</div> 

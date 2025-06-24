@@ -1,0 +1,42 @@
+footer {
+  background-color: #fa5402;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.custom-btn, .custom-btn-logout {
+  background-color: white;
+  color: #FF4B2B;
+  border-radius: 20px;
+  padding: 8px 25px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+}
+
+.custom-btn:hover, .custom-btn-logout:hover {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
+.custom-btn-logout {
+  background-color: #f44336;
+  color: white;
+  border-color: #f44336;
+}
+
+.custom-btn-logout:hover {
+  background-color: #d32f2f;
+  border-color: #d32f2f;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}

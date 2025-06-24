@@ -1,32 +1,9 @@
-:root {
-  --primary: #1e88e5;
-  --accent: #ffca28;
-  --bg: #87cefa;
-  --white: #ffffff;
-  --text-dark: #212121;
-  --shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-}
-
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-}
-
-header  {
-  background:#87cefa ;
-}
-nav{
+:host {
   display: flex;
-  padding: 20px 0px;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-nav a {
-  text-align: center;
-}
-nav:first-line {
-  font-weight: bold;
-  font-family: poppins;
-  font-size: 1.5rem;
-  color: white;
+main {
+  flex: 1;
 }

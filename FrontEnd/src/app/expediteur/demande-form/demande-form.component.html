@@ -1,0 +1,19 @@
+<div class="demande-form">
+  <h2>Demande de transport</h2>
+  <form [formGroup]="demandeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="colis">Colis</label>
+      <input type="text" formControlName="colis" class="form-control" id="colis" placeholder="Colis">
+    </div>
+    <div class="form-group">
+      <label for="poids">Poids</label>
+      <input type="number" formControlName="poids" class="form-control" id="poids" placeholder="Poids">
+    </div>
+    <div class="form-group">
+      <label for="dimensions">Dimensions</label>
+      <input type="text" formControlName="dimensions" class="form-control" id="dimensions" placeholder="Dimensions">
+    </div>
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+</div>
+

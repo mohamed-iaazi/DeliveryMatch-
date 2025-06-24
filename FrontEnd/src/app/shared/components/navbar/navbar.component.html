@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg shadow-sm" style="background: #FF4B2B">
+
+  <div class="container-fluid px-4">
+    <a class="navbar-brand text-white fw-bold fs-4" >DeliveryMatch</a>
+    <button
+      class="navbar-toggler border-0"
+      type="button"
+      (click)="isMenuOpen = !isMenuOpen"
+      aria-label="Toggle navigation"
+      [attr.aria-expanded]="isMenuOpen"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [class.show]="isMenuOpen" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-6">
+      </ul>
+
+      <div class="d-flex gap-3 auth-buttons">
+        <ng-container *ngIf="!authService.isLoggedIn()">
+          <a
+            routerLink="/"
+            class="btn custom-btn"
+          >Login</a
+          >
+          <a
+            routerLink="/"
+            class="btn custom-btn"
+          >Register</a
+          >
+        </ng-container>
+        <button *ngIf="authService.isLoggedIn()" (click)="logout()" class="btn custom-btn-logout">
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
