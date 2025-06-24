@@ -2,18 +2,22 @@
   <h2>Demande de transport</h2>
   <form [formGroup]="demandeForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="colis">Colis</label>
-      <input type="text" formControlName="colis" class="form-control" id="colis" placeholder="Colis">
+      <label for="description">Description</label>
+      <input type="text" formControlName="description" class="form-control" id="description" placeholder="Description" required>
     </div>
     <div class="form-group">
       <label for="poids">Poids</label>
-      <input type="number" formControlName="poids" class="form-control" id="poids" placeholder="Poids">
+      <input type="number" formControlName="poids" class="form-control" id="poids" placeholder="Poids" required>
     </div>
     <div class="form-group">
       <label for="dimensions">Dimensions</label>
-      <input type="text" formControlName="dimensions" class="form-control" id="dimensions" placeholder="Dimensions">
+      <input type="text" formControlName="dimensions" class="form-control" id="dimensions" placeholder="Dimensions" required>
     </div>
-    <button type="submit" class="btn btn-primary">Envoyer</button>
+    <div class="form-group">
+      <label for="typeColis">Type de Colis</label>
+      <input type="text" formControlName="typeColis" class="form-control" id="typeColis" placeholder="Type de Colis" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Créer le colis</button>
   </form>
 </div>
 

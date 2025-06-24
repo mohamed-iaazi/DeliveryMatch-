@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormGroup, FormControl, Validators, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
@@ -11,10 +11,12 @@ import {FormGroup, FormControl, Validators, ReactiveFormsModule} from '@angular/
 })
 export class DemandeFormComponent implements OnInit {
   expediteur: string= "";
+  @Output() colisCreated = new EventEmitter<any>();
   demandeForm = new FormGroup({
-    colis: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
     poids: new FormControl('', Validators.required),
-    dimensions: new FormControl('', Validators.required)
+    dimensions: new FormControl('', Validators.required),
+    typeColis: new FormControl('', Validators.required)
   });
 
   constructor() { }
@@ -24,7 +26,8 @@ export class DemandeFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.demandeForm.value);
-    // Envoyer la demande de transport
+    if (this.demandeForm.valid) {
+      this.colisCreated.emit(this.demandeForm.value);
+    }
   }
 }

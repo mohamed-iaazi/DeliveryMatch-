@@ -29,7 +29,7 @@
       <td>{{ trajet.volumeMax | number: '1.2-2' }}</td>
       <td>{{ trajet.typeMarchandise }}</td>
       <td>
-        <button class="btn btn-sm btn-success">Envoyer Demande</button>
+        <button class="btn btn-info btn-sm" (click)="selectTrajet(trajet.id)">Voir</button>
       </td>
     </tr>
     <tr *ngIf="filteredTrajets.length === 0">

@@ -1,0 +1,58 @@
+<div class="container mt-4">
+  <h2 class="text-primary mb-4">Tableau de bord Expéditeur</h2>
+
+  <!-- Reserved Trajets Section -->
+  <div class="mb-4">
+    <h4>Mes trajets réservés</h4>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Trajet</th>
+          <th>Statut</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let demande of demandes">
+          <td>{{ demande.trajet }}</td>
+          <td>{{ demande.statut }}</td>
+          <td>{{ demande.date }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm me-2" (click)="cancelDemande(demande.id)">Annuler</button>
+          </td>
+        </tr>
+        <tr *ngIf="demandes.length === 0">
+          <td colspan="4" class="text-center">Aucune réservation trouvée.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+  <div class="row">
+    <div class="col-md-7">
+      <app-trajet-list (trajetSelected)="onTrajetSelected($event)"></app-trajet-list>
+    </div>
+    <div class="col-md-5" *ngIf="selectedTrajetId">
+      <app-trajet-detail [trajetId]="selectedTrajetId"></app-trajet-detail>
+      <div class="mb-2">
+        <label for="colisSelect">Sélectionner un colis <span class="text-danger">*</span> :</label>
+        <select id="colisSelect" class="form-select" [(ngModel)]="selectedColisId" required>
+          <option [ngValue]="null" disabled selected>-- Choisir un colis --</option>
+          <option *ngFor="let colis of colisList" [ngValue]="colis.id">
+            {{ colis.description }} ({{ colis.poids }}kg, {{ colis.typeColis }})
+          </option>
+        </select>
+        <button class="btn btn-link p-0 mt-1" (click)="onAddNewColisClick()">+ Ajouter un nouveau colis</button>
+      </div>
+      <div *ngIf="showColisFormForAdd">
+        <app-demande-form (colisCreated)="handleColisCreated($event)"></app-demande-form>
+      </div>
+      <button class="btn btn-success w-100 mt-3" (click)="reserveTrajet()" [disabled]="!selectedColisId">Réserver ce trajet</button>
+      <button class="btn btn-link w-100 mt-2" (click)="clearSelection()">Retour à la liste</button>
+    </div>
+  </div>
+</div> 

@@ -1,21 +1,17 @@
-<div class="trajet-detail">
-  <div class="trajet-header">
-    <h2>{{ trajet.depart }} - {{ trajet.arrivee }}</h2>
-    <p>Date: {{ trajet.date }} | Heure: {{ trajet.heure }}</p>
+<div *ngIf="trajet" class="card shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h5 class="mb-0">Détails du Trajet</h5>
   </div>
-  <div class="trajet-info">
-    <div class="info-block">
-      <h3>Informations sur le trajet</h3>
-      <p>Distance: {{ trajet.distance }} km</p>
-      <p>Durée: {{ trajet.duree }} heures</p>
-    </div>
-    <div class="info-block">
-      <h3>Conducteur</h3>
-      <p>Nom: {{ trajet.conducteur.nom }}</p>
-      <p>Note: {{ trajet.conducteur.note }} / 5</p>
-    </div>
+  <div class="card-body">
+    <h6 class="card-title">{{ trajet.lieuDepart }} → {{ trajet.destination }}</h6>
+    <p class="card-text">
+      <strong>Date de départ:</strong> {{ trajet.dateDepart | date: 'dd/MM/yyyy' }}<br>
+      <strong>Marchandise acceptée:</strong> {{ trajet.typeMarchandise }}<br>
+      <strong>Poids maximum:</strong> {{ trajet.poidsMax }} kg<br>
+      <strong>Volume maximum:</strong> {{ trajet.volumeMax | number: '1.2-2' }} m³
+    </p>
   </div>
-  <div class="trajet-actions">
-    <button class="btn btn-primary">Réserver</button>
-  </div>
+</div>
+<div *ngIf="!trajet" class="text-center text-muted">
+  <p>Sélectionnez un trajet pour voir les détails.</p>
 </div>

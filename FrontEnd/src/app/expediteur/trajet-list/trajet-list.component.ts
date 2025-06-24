@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {CommonModule, NgForOf} from '@angular/common';
 import { Trajet, TrajetService } from '../../core/services/trajet.service';
@@ -15,6 +15,7 @@ import { Trajet, TrajetService } from '../../core/services/trajet.service';
   styleUrl: './trajet-list.component.css'
 })
 export class TrajetListComponent implements OnInit {
+  @Output() trajetSelected = new EventEmitter<number>();
   trajets: Trajet[] = [];
   filteredTrajets: Trajet[] = [];
   searchTerm = '';
@@ -38,5 +39,9 @@ export class TrajetListComponent implements OnInit {
       return trajet.lieuDepart.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
         trajet.destination.toLowerCase().includes(this.searchTerm.toLowerCase());
     });
+  }
+
+  selectTrajet(id: number): void {
+    this.trajetSelected.emit(id);
   }
 }

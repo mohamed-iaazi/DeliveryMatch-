@@ -15,7 +15,7 @@ export const routes: Routes = [
   },
   {
     path: 'expediteur/trajets',
-    loadComponent: () => import('./expediteur/trajet-list/trajet-list.component').then(m => m.TrajetListComponent),
+    loadComponent: () => import('./expediteur/expediteur-dashboard.component').then(m => m.ExpediteurDashboardComponent),
   },
   {
     path: 'trajet/new',
